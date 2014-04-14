@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Question 1 of 5: Mobi Learners Guide</title>
+<link type="text/css" href="maincss.css" rel="stylesheet" />
+<script>
+var answer = 2;
+var numOfOptions = 3;
+var answered = false;
+
+function pressDown(userSelection){
+	if(!answered){
+		document.getElementById("option"+userSelection).setAttribute("style","background:#999");
+	}
+}
+
+	
+function showMark(userSelection){
+	if(!answered){
+		
+		//making all elements unhoverable
+		for(var i=1; i<=numOfOptions;i++){
+			document.getElementById("option"+i).setAttribute("style","background:#DDD");
+		}
+		
+		//making correct answer green and wrong answer red
+		if(userSelection == answer){
+			document.getElementById("option"+userSelection).setAttribute("style","background:#6C9");
+			document.getElementById("mark"+userSelection).setAttribute("style","background-position: 0px -24px;");
+		}else{
+			document.getElementById("option"+userSelection).setAttribute("style","background:#F33");
+			document.getElementById("mark"+userSelection).setAttribute("style","background-position: 0px -48px;");
+			
+			document.getElementById("option"+answer).setAttribute("style","background:#6C9");
+			document.getElementById("mark"+answer).setAttribute("style","background-position: 0px -24px;");
+			
+		}					
+		answered = true;
+	}
+}
+</script>
+
+<!--style type="text/css">
+#option1,#option2,#option3{width:240px;}
+</style-->
+</head>
+
+<body>
+<div id="container">
+    <div id="image-holder">
+        <img class="sign" src="infosign.png" width="120" height="120"/>
+    </div> 
+    <h1 class="qhead">This kind of sign is a ...</h1>
+    
+    <a href="#" id="option1" onMouseDown="pressDown(1)" onclick="showMark(1)">
+    <div class="numbering">[1]</div>
+    <div id="mark1"></div>
+    <p class="option-text">Command sign</p>
+    </a>
+    
+    < href="#" id="option2" onMouseDown="pressDown(2)" onclick="showMark(2)">
+    <div class="numbering">[2]</div>
+    <div id="mark2"></div>
+    <p class="option-text">Information sign</p>
+    </a>
+    
+    <a href="#" id="option3" onMouseDown="pressDown(3)" onclick="showMark(3)">
+    <div class="numbering">[3]</div>
+    <div id="mark3"></div>
+    <p class="option-text">Control sign</p>
+    </a>
+    
+    <div id="nav">
+    <a href="question2.html" id="next">Next</a>
+    <a href="#" id="back">Back</a>
+    </div>
+ 
+ </div>
+
+</body>
+</html>
